@@ -9,13 +9,12 @@
     <title>Document</title>
     <style>
       .box {
-        width: 0px;
-        height: 0px;
-        /* background: transparent; */
-        margin: auto;
-        border: 100px solid;
+        width: 0px; /* 盒子的宽*/
+        height: 0px; /*盒子的高*/
+        margin: auto; /*左右居中*/
+        border: 100px solid; /*设置边框的大小*/
+        border-color: transparent transparent red transparent; /*设置上 右 左 为透明色 下为红色*/
         /* border-top-color: aqua; */
-        border-color: transparent transparent red transparent;
         /* border-right-color: black;
         border-bottom-color: blue;
         border-left-color: yellow; */
@@ -78,12 +77,12 @@
             top: calc(50% - 50px);
             left:calc(50% - 50px); */
 
-        /* 第五种  */
+        /* 第五种 不需要计算宽高 */
         /* width: 100px;
             height: 100px;
             background: palegreen;
             margin:50% auto;
-            transform: translateY(-50%); */
+            transform: translateY(-50%-100px); */
       }
     </style>
   </head>
