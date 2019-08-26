@@ -55,10 +55,10 @@
 - 如果打印输出 key 输出的是这个对象的 属性名.
 - 如果要拿到属性值与名字时 就必须使用 obj[key] 方式 来获取 ([]方式获取参数).
 
-
 ## JSON 的使用方法
+
 - JSON 是一种轻量级的数据交换格式
-- JSON 是js对象的字符串表示方式 是使用文本表示一个JS对象信息的 本质上是一个字符串.
+- JSON 是 js 对象的字符串表示方式 是使用文本表示一个 JS 对象信息的 本质上是一个字符串.
 - 对象 数组这些 数据是没有办法进行传输数只有文本可以进行 传输
 
 ```html
@@ -142,7 +142,7 @@
     // obj.key  拿到的是 obj的 key 属性( obj 并没有  key属性,所以 undefined)
     // obj.xx 获取属性时,如果 xx 是个 变量(会变化)  需要采用  obj[xx]获取属性值
     console.log(obj.key); // ubndefined
-    console.log(obj[key]);
+    console.log(obj[key]); // 拿到的是属性对应的值
   }
 </script>
 ```

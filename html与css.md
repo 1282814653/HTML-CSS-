@@ -1,4 +1,4 @@
-# html 与 css 的总结
+# html 与 css 
 
 - html 是超文本标记语言 是负责页面的布局的
 - css 是层叠样式表 是负责 页面的结构的
@@ -12,8 +12,8 @@
   - 行内块是 不会换行(综合里快与行内的优点) 但是可以有宽高 margin padding 参数都可以设定 display: inline-block
 - css 基础中主要掌握的是就是 float(浮动)产生的变化及浮动产生的后果和怎么解决.position 定位 中要知道定位的使用方式和几种定位的方法.
 - position 可以设定相对定位 relative 相对于自己
-  绝对定位 absolute 相对于最近的 relative
-  固定定位 fixed 相对于当前页面
-  粘性定位 sticky 设置参数达到要求就会触发粘性定位
+- 绝对定位 absolute 相对于最近的 relative
+- 固定定位 fixed 相对于当前页面
+- 粘性定位 sticky 设置参数达到要求就会触发粘性定位
 - 选择器的使用 id 属性 和 class 还有 交集 并集 \*通配 和 父子 等一系列选择器
 - :hover 要熟悉应用 hover 效果 搞清楚层次理论

@@ -14,7 +14,7 @@
 
 ## jq 自定义动画
 
-1.  \$('元素').animate(styles,speed,easing,callback);
+1. \$('元素').animate(styles,speed,easing,callback);
 
 - styles 要执行的动画 css 属性 (必填属性)
 - speed 要执行动画的时长(可选属性)//'swing' 先慢后快再慢// 'linear'(线性匀速)

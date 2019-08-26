@@ -62,7 +62,7 @@
 ## js 的弹出框
 
 - 1.alert("页面上弹出警告框");
-- 2.console.log("控制到上输出信息 。 大部分都是在此处调试程序 程序要必用“);
+- 2.console.log("控制到上输出信息 。 大部分都是在此处调试程序 程序员必用“);
 - 3.prompt("用户输出语句 ");
 - 4.document.write("在页面上输出信息 基本上弃用");
 
@@ -128,7 +128,7 @@
 - console.log(Boolean(undefined)); // false
 - console.log(Boolean(null)); // false
 - console.log(Boolean({})); // true
-  **总结: NaN 0 undefined null '' 这五种转换为 false,其余 都是 true**
+  **总结: NaN 0 undefined null '' false 这六种转换为 false,其余 都是 true**
   **强调 ,涉及到隐式转换时 所使用的都是 String() Number() Boolean() 方式**
 
 ## js 运算符
@@ -137,7 +137,7 @@
 - 非数值进行加减乘除取余时,会先转换成 数字类型 (隐式转换) Number()
 - **任何值和 NaN 做运算的结果都是 NaN。**
 - 任何的值和字符串做加法运算，都会先转换为字符串，然后再做拼串操作。console.log('11' + 1); // 111
-- **任何值做-、\*、/运算时都会自动转换为 Number。**
+- **任何值做 - + \* /运算时都会自动转换为 Number。**
 
 ## js 的自增自减
 
@@ -175,16 +175,15 @@
 - parse 表示“转换”，Int 表示“整数” ， Float 表示"小数".
 - **转换规则: 从第一个非空白字符（空格、换行、tab）开始转换，直到遇到一个非数字字符为止。取整数 不会四舍五入**
 - 如果对不是字符串的使用 parseInt 或者 parseFloat 的话 会将其先转换为 String 在进行操作.
-- parseInt 结果： 
-  - var a = '12345'; console.log(parseInt(a)); // 12345 
-- parseFlaot  结果： 
-  - var b = '123.4'; console.log(parseFloat(b)); // 123.4 
-- 字符串带字母： 
-  - var  c = '123a'; console.log(parseInt(c)); // 123 
-  - console.log(parseInt(' 2019abc')); // 2019 
-- parseInt相加的结果： var sum = parseInt(5.8) + parseInt(4.7); //console.log(sum); // 9 
-- parseFloat小数加字母结果： var d = "123.456px"; console.log(parseFloat(d)); //123.456
-
+- parseInt 结果：
+  - var a = '12345'; console.log(parseInt(a)); // 12345
+- parseFlaot 结果：
+  - var b = '123.4'; console.log(parseFloat(b)); // 123.4
+- 字符串带字母：
+  - var c = '123a'; console.log(parseInt(c)); // 123
+  - console.log(parseInt(' 2019abc')); // 2019
+- parseInt 相加的结果： var sum = parseInt(5.8) + parseInt(4.7); //console.log(sum); // 9
+- parseFloat 小数加字母结果： var d = "123.456px"; console.log(parseFloat(d)); //123.456
 
 ## JS 中的常用对象与计算方式
 
@@ -208,7 +207,7 @@
 
 2. 循环结构
 
-- for(var i=i0; i<xx.length;i++){代码块} for 的结构样子 适用于重复输出的语句 for(里面的条件要写清楚).
+- for(var i=i0; i < xx.length ;i++) {代码块} for 的结构样子 适用于重复输出的语句 for(里面的条件要写清楚).
 - for 循环嵌套 外层循环一次 里面会相应的循环若干遍(根据写的长度来判断的).
 - while(){}和 do{}while()循环 他们 两个也都是循环语句 使用的程度相对于 for 循环而言使用率较低.while 循环先判断在执行 如果 判断不通过 不会执行 或者是死循环. do{}while() 循环是先执行一遍不看条件 第二次循环如果 条件没有达到执行的要求,也不会执行.
 
@@ -217,8 +216,8 @@
 - var str = "how are you? and you?";
 - str.charAt(5); //r 返回指定位置的字符是什么(从 0 开始).
 - str.charCodeAt(5)//114 返回指定位置的字符的 Unicode 编码.
-- str.indexOf('0')// 1 返回 o 在字符串中的位置.
-- str.lastindexOf('0') //18 返回 o 在字符串的位置(从后往前).
+- str.indexOf('0')// 1 返回 o 在字符串中的位置(下标).
+- str.lastindexOf('o') //18 返回 o 在字符串的位置(从后往前数的 但是下标确实从前往后算的).
 - str.concat(str2)// 拼接字符串 组成新的字符串.
 - str.slice(1,6)//'ow ar' 截取在数值范围的字符串.(起始位置,结束位置)结束位置-1 就是实际的取值效果.
 - str.substr(1,6)//'ow are' 第一位数是开始位置 第二位数是截取的位数是多少.

@@ -5,12 +5,12 @@
 1. jq 的元素获取
 
 - \$('.calss/#id/标签名')
-- 如 : \$('.box') 获取 class 为 box 元素
+- 如 :\$('.box') 获取 class 为 box 元素
 - 获取事件源的 基本选择器 同 css 选择一样
 
 2. jq 与 js 之间的转换
 
-- \$('.box[0]') 就是把 jq 对象转换为 js 对象
+- \$('.box')[0] 就是把 jq 对象转换为 js 对象
 - 通过 js 获取到元素名字以后 直接在元素前面加上 \$ 即可
 
 3. js 与 jq 的区别
@@ -21,17 +21,19 @@
 4. js 与 jq 的入口函数区别
 
 - js 需要等待 图片加载 jq 不需要等在图片加载
+- js 的 window.onload 写多个只执行一个 , jq 可以写多个\$(document).ready()都可以执行
+- js 的 window.onload 不可以简写 ,jq 的$(document).ready(function(){})可以简写成$(function(){});
 
 ## jq 的选择器
 
 **jq 的选择器与 css 的选择器都是一样的**
 
 1. 其他选择器
-   - > 子代选择器
+   - (> 子代选择器
      - \$('.box>.w-box').css('color', 'blue');
-   - - 紧邻选择器 紧挨着下边的兄弟元素
-       - \$('.active+li').css('fontSize', '24px');
-   - ~ 兄弟选择器 后面所有的兄弟
+   - (+ 紧邻选择器 紧挨着下边的兄弟元素
+     - \$('.active+li').css('fontSize', '24px');
+   - (~ 兄弟选择器 后面所有的兄弟
      - \$('.active~li').css('background-color', 'orange');
 2. 属性选择器
    - \$('a[href]').css('color', 'red');
@@ -85,23 +87,18 @@
     <a>百度无href</a>
     <a href="baidu">href为百度</a>
     <a href="baidu" title="百度">href为百度</a>
-
     <!-- <a href="">百度</a> -->
-
     <script src="js/jquery-3.4.1.min.js"></script>
     <script>
       // css的选择器  和 jquery 选择器是一样的的
-
       // 其他css 选择器
       // jquery 也适用
       // 子代选择器
       // 紧邻选择器 紧挨着的下一个兄弟
       // 兄弟选择器 后边的所有兄弟
-
       $(".box>.w-box").css("color", "blue");
       $(".active+li").css("fontSize", "24px");
       $(".active~li").css("background-color", "orange");
-
       // 属性选择器
       $("a[href]").css("color", "red");
       $('a[href="baidu"]').css("color", "green");
@@ -113,16 +110,16 @@
 
 3. 筛选选择器
 
-- \$('li:eq(0)').css('color', 'red');
-- \$('li:gt(4)').css('color', 'yellow');
-- \$('li:lt(4)').css('color', 'green');
-- \$('li:odd').css('color', 'pink');
-- \$('li:even').css('color', 'purple');
-- \$('li:first').css('background-color', 'red');
-- \$('li:last').css('background-color', 'yellow');
-- \$('p:empty').css('color', 'red');
-- \$('p:contains("不凡")').css('color', 'yellow');
-- // 获取被选中的多选框 ,prop()可以获取选中状态,并且修改
+- \$('li:eq(0)').css('color', 'red'); // 选取第 0 个元素改变字体颜色
+- \$('li:gt(4)').css('color', 'yellow');//选取 大于 4 的元素改变字体颜色
+- \$('li:lt(4)').css('color', 'green'); // 选取小于 4 的元素改变字体颜色
+- \$('li:odd').css('color', 'pink'); // 奇数行改变字体颜色
+- \$('li:even').css('color', 'purple');// 偶数行改变字体颜色
+- \$('li:first').css('background-color', 'red'); // 第一个元素改变背景色
+- \$('li:last').css('background-color', 'yellow'); // 最后一个改变背景色
+- \$('p:empty').css('color', 'red');// 改变空值的字体颜色
+- \$('p:contains("你好")').css('color', 'yellow');//有这个文字的内容的 改变字体颜色
+- // 获取被选中的多选框 ,prop()可以获取选中状态,并且修改 适用于表单元素
 - \$('input:checked').prop('checked', false);
 
 ```html
@@ -150,17 +147,15 @@
         <li>li10</li>
     </ul>
     <p></p>
-    <p>不凡学院</p>
+    <p>你好,明天</p>
 
     篮球:<input type="checkbox">
     足球:<input type="checkbox">
     乒乓球:<input type="checkbox" checked>
-
     <!-- <select name="" id="">
         <option value="">篮球</option>
         <option value="" selected>足球</option>
         <option value="">乒乓球</option>
-
     </select> -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script>
@@ -171,12 +166,9 @@
         $('li:even').css('color', 'purple');
         $('li:first').css('background-color', 'red');
         $('li:last').css('background-color', 'yellow');
-
-
         $('p:empty').css('color', 'red');
         $('p:contains("不凡")').css('color', 'yellow');
-
-        // 获取被选中的多选框 ,prop()可以获取选中状态,并且修改
+        // 获取被选中的多选框 ,prop()可以获取选中状态,并且修改 适用于表单元素
         $('input:checked').prop('checked', false);
     </script>
 
@@ -227,7 +219,7 @@
   </head>
 
   <body>
-    <p class="txt" title="不凡">不凡学院</p>
+    <p class="txt" title="你好吗">你好,明天</p>
     <button>添加danger</button>
     <button>删除danger</button>
     <button>切换danger</button>
@@ -276,7 +268,7 @@
   </head>
 
   <body>
-    <p>不凡学院</p>
+    <p>你好明天</p>
     <div class="box">
       <div class="inner-box">
         我是内部盒子
@@ -310,19 +302,19 @@
 ### jq 关系元素查找
 
 - 下面的都是方法
-- eq(index);
-- find();
-- siblings(); 除了自己以外的所有兄弟节点
-- children(); 所有孩子节点
-- next(); 下一个兄弟节点
-- nextAll(); 后面的所有兄弟节点
-- nextUntil();后面的兄弟节点,直到...
-- prev();上一个兄弟节点
-- prevAll();
-- prevUntil();
-- parent(); 父节点
-- parents(); 所有父节点
-- parentsUntil();
+- eq(index); // index 是第一个元素
+- find(); // 查询全部
+- siblings(); //除了自己以外的所有兄弟节点
+- children(); //所有孩子节点
+- next(); //下一个兄弟节点
+- nextAll(); //后面的所有兄弟节点
+- nextUntil();//后面的兄弟节点,直到...某个元素
+- prev();//上一个兄弟节点
+- prevAll();//上面的所有兄弟节点
+- prevUntil();// 上面的所有兄弟节点 直到...某个元素
+- parent(); //父节点
+- parents(); //所有父节点
+- parentsUntil();//所有的父节点 直到...某个元素
 
 ```html
 <!DOCTYPE html>
@@ -350,7 +342,7 @@
     </ul>
     <div class="box">
       <div class="inner-box">
-        <p>不凡学院</p>
+        <p>你好,明天</p>
       </div>
       <p>天气很好</p>
     </div>
