@@ -55,7 +55,7 @@
 - ()里可以写一个函数 参数一元素为 item . 参数二元素为 index . 参数三就是要遍历数组的名字.
 - 第一个参数 item 必须写 后面两个可以省略
 
-```html
+```js
 <script>
   var arr = [1, 3, 5, 7, 9];
   arr.forEach(function(item, index, arr) {
